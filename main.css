@@ -1,0 +1,15 @@
+.content, #output {
+    text-align: center;
+}
+
+.top, .bottom {
+display: flex;
+justify-content: space-evenly;
+margin: 10px;
+}
+
+.arduino, .weather, .electricity, .author {
+    border: 10px solid black;
+    width: 48%;
+}
+
