@@ -1,5 +1,6 @@
 .content, #output {
     text-align: center;
+    margin: 5px;
 }
 
 .top, .bottom {
@@ -8,8 +9,16 @@ justify-content: space-evenly;
 margin: 10px;
 }
 
-.arduino, .weather, .electricity, .author {
+.arduino, .movies, .weather, .author {
     border: 10px solid black;
-    width: 48%;
+    width: 48%; 
 }
 
+.movie{
+    border: 10px solid black;
+    margin: 1%;
+}
+
+.movieInfo {
+    margin: 2%;
+}
