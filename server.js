@@ -17,7 +17,6 @@ function sendData(data) {
 function readLastNonEmptyLine(filePath, callback) {
   const readable = fs.createReadStream(filePath, { encoding: 'utf-8' });
   let lastNonEmptyLine = '';
-
   readable.on('data', chunk => {
     const lines = chunk.split('\n');
     for (let i = lines.length - 1; i >= 0; i--) {

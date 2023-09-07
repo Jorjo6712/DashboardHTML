@@ -13,7 +13,6 @@ const options = {
 
 // Calls the API and brings the title that the user searched for
 async function fetchData() {
-
     // Removes all previously searched movies
     removeElements();
 
