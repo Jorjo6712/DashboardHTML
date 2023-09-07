@@ -14,8 +14,29 @@ margin: 10px;
     width: 48%;
 }
 
+.weatherContent
+{
+    border: 3px solid black;
+    margin: 5%;
+    text-align: center;
+    text-justify: auto;
+    font-size: 150%;
+}
+
+.weatherButton
+{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.fetchButton
+{
+    font-size: 50px;
+}
+
 .movie{
-    border: 10px solid black;
+    border: 0.1rem solid black;
     margin: 1%;
 }
 

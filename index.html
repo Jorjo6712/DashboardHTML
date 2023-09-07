@@ -18,6 +18,13 @@
         </div>
         <div class="weather">
             <h1 class="content">Weather</h1>
+            <div class="weatherButton">
+            <script src="weatherapi.js">document.getElementById("fetchButton").addEventListener("click", apiFetchData);</script>
+            <button id="fetchButton" onclick="apiFetchData(); document.getElementById('fetchButton').style.visibility ='hidden';">Load Data</button>
+            </div>
+            <div class="weatherContent">
+                <div class="weatherIcon"></div>
+            </div>
         </div>
     </div>
     <div class="bottom">
