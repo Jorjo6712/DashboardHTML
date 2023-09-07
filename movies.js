@@ -1,7 +1,7 @@
 const title = document.getElementById("title");
 const searchButton = document.getElementById("search");
 const outputField = document.getElementById("display");
-let resultArray;
+
 // Headers for the api, which includes the API key
 const options = {
     method: 'GET',
@@ -13,6 +13,10 @@ const options = {
 
 // Calls the API and brings the title that the user searched for
 async function fetchData() {
+
+    // Removes all previously searched movies
+    removeElements();
+
     const url = `https://ott-details.p.rapidapi.com/search?title=${title.value}&page=1`;
     try {
         // Gets the data from the api
@@ -33,10 +37,14 @@ async function fetchData() {
 
 // Creates html elements to display information for the results
 function update(item) {
+    // Creates a div for each movie and gives the class name "movie"
+    // We put this new element below our outputField element
     const div = document.createElement("div");
     div.className = "movie"
     outputField.appendChild(div);
 
+    // Creates a header 4 for each information about the movie
+    // All these headers then become children of the previously created div
     const movieTitle = document.createElement("h4");
     movieTitle.textContent = `Movie Title: ${item.title} `;
     div.appendChild(movieTitle);
@@ -47,13 +55,24 @@ function update(item) {
 
     const genre = document.createElement("h4");
     genre.textContent = `Genre: ${item.genre} `;
-    div.appendChild(genre); 
+    div.appendChild(genre);
 
+    // Each of the headers get the same class, called movieInfo
     movieTitle.className = "movieInfo";
     release.className = "movieInfo";
     genre.className = "movieInfo";
-
+    
     console.log(item);
+}
+
+function removeElements() {
+    // Selects all elements with the movie class, as an array
+    let get = document.querySelectorAll('.movie');
+
+    // Goes through each element and removes them
+    get.forEach(element => {
+        element.remove();
+    });
 }
 
 // Calls function once user presses the search button

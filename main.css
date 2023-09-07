@@ -10,8 +10,9 @@ margin: 10px;
 }
 
 .arduino, .movies, .weather, .author {
-    border: 10px solid black;
+    border: 5px solid black;
     width: 48%; 
+    border-radius: 25px;
 }
 
 .movie{
