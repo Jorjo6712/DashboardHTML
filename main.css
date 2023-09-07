@@ -9,7 +9,16 @@ justify-content: space-evenly;
 margin: 10px;
 }
 
-.arduino, .weather, .electricity, .author {
+.arduino, .movies, .weather, .games { 
     border: 10px solid black;
     width: 48%;
+}
+
+.movie{
+    border: 10px solid black;
+    margin: 1%;
+}
+
+.movieInfo {
+    margin: 2%;
 }
