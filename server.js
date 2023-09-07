@@ -2,7 +2,6 @@ const fs = require('fs');
 const WebSocket = require('ws');
 const http = require('http');
 const server = http.createServer();
-
 const wss = new WebSocket.Server({ server });
 
 // Function to send data to connected clients
