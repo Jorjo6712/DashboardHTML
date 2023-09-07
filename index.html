@@ -19,11 +19,9 @@
         <div class="weather">
             <h1 class="content">Weather</h1>
             <div class="weatherButton">
-            <script src="weatherapi.js">document.getElementById("fetchButton").addEventListener("click", apiFetchData);</script>
-            <button id="fetchButton" onclick="apiFetchData(); document.getElementById('fetchButton').style.visibility ='hidden';">Load Data</button>
             </div>
-            <div class="weatherContent">
-                <div class="weatherIcon"></div>
+            <div id="weatherContent" class="content">
+
             </div>
         </div>
     </div>
@@ -36,11 +34,17 @@
                 <div id="display" class="movieOutput"></div>
             </div>
         </div>
-            <div class="games">
-                <h1 class="content">Free games on Epic Games</h1>
+        <div class="games">
+            <h1 class="content">Free games on Epic Games</h1>
+            <button id="loadGame" class="loadButton">Load free game</button>
+            <div class="content" id="gameContent">
+
             </div>
         </div>
-        <script src="movies.js"></script>
+    </div>
+    <script src="weatherapi.js"></script>
+    <script src="movies.js"></script>
+    <script src="games.js"></script>
 </body>
 
 </html>
