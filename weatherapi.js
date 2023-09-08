@@ -31,12 +31,15 @@ function apiFetchData() {
             temperature.textContent = `Temperature: ${apiResponse.current.temperature}°`;
             icon.src = apiResponse.current.weather_icons;
             wind.textContent = `Wind: ${apiResponse.current.wind_speed}m/s`;
-            visibility.textContent = `Visibility ${apiResponse.current.visibility}`;
+            visibility.textContent = `Visibility: ${apiResponse.current.visibility} km`;
             feelslike.textContent = `Feels like: ${apiResponse.current.feelslike}°`;
             humidity.textContent = `Humidity: ${apiResponse.current.humidity}%`;
             description.textContent = apiResponse.current.weather_descriptions;
             uv.textContent = `UV index: ${apiResponse.current.uv_index}`;
-            console.log(visibility);
+
+            // Make picture bigger
+            icon.width = 100;
+            icon.height = 100;
 
             // Make each element a child of the div called weatherContent
             weatherContent.appendChild(icon);
@@ -49,32 +52,6 @@ function apiFetchData() {
             weatherContent.appendChild(uv);
             weatherContent.appendChild(humidity);
             weatherContent.appendChild(visibility);
-
-
-            /*
-                  var weatherIconImg = new Image();
-            
-                  weatherIconImg.src = weatherIconUrl;
-          
-                  weatherDOM[0].appendChild(weatherIconImg);
-            
-                  var textToShow = 
-                  `City: ${city}, 
-                  Country: ${country}, 
-                  Region: ${region}, 
-                  Local Time: ${localtime},
-                  Temperature: ${temperature}°, 
-                  ${weather_descriptions}, 
-                  Wind Speed: ${wind_speed}m/s,
-                  Wind Degree: ${wind_degree},
-                  Humidity: ${humidity}%,
-                  Wind Direction: ${wind_direction},
-                  Pressure: ${pressure},
-                  Feels like: ${feelslike}°`;
-                  
-                  weatherDOM[0].textContent = textToShow; */
-
-
         } else {
             console.error('Failed to fetch weather data');
         }

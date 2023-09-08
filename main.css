@@ -10,8 +10,21 @@ margin: 10px;
 }
 
 .arduino, .movies, .weather, .games { 
-    border: 10px solid black;
+    border: 5px solid black;
     width: 48%;
+    border-radius: 25px;
+}
+
+.weather {
+    background-color: #96b5e5;
+}
+
+.movies {
+    background-color: red;
+}
+
+.games {
+    background-color: limegreen;
 }
 
 .weatherContent
@@ -42,4 +55,11 @@ margin: 10px;
 
 .movieInfo {
     margin: 2%;
+}
+
+.loadGame,.loadButton
+{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
 }
