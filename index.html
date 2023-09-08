@@ -14,14 +14,15 @@
             <h1 class="content">Arduino</h1>
             <h2 class="content">Who are we looking at?</h2>
             <h2 id="output">output</h2>
-            <script src="data.js"></script>
+            <div id="images"></div>
         </div>
         <div class="weather">
             <h1 class="content">Weather</h1>
-            <div class="weatherButton">
+            <div class="weatherInput">
+                <input type="text" id="loadWeatherData" placeholder="Search Weather Data"
+                    onblur="apiFetchData()" class="weatherSearch"></input>
             </div>
             <div id="weatherContent" class="content">
-
             </div>
         </div>
     </div>
@@ -29,8 +30,8 @@
         <div class="movies">
             <h1 class="content">Movies</h1>
             <div class="content">
-                <input type="text" id="title" placeholder="Movie title">
-                <button class="content" id="search">search</button>
+                <input type="text" id="title" placeholder="Movie title" class="title">
+                <button class="searchButton" id="search">search</button>
                 <div id="display" class="movieOutput"></div>
             </div>
         </div>

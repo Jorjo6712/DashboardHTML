@@ -1,9 +1,15 @@
 const weatherContent = document.getElementById("weatherContent");
+const loadWeatherData = document.getElementById("loadWeatherData");
+
 
 function apiFetchData() {
     const request = new XMLHttpRequest();
 
-    request.open("GET", "http://api.weatherstack.com/current?access_key=1959fdf3f11c80e464902d618594bedc&query=Copenhagen");
+    var locationInput = loadWeatherData.value; 
+
+    const apiKey = "1959fdf3f11c80e464902d618594bedc";
+
+    request.open("GET", `http://api.weatherstack.com/current?access_key=${apiKey}&query=${locationInput}`);
 
     request.send();
 
@@ -11,7 +17,18 @@ function apiFetchData() {
         if (request.status === 200) {
             // Parse text response to json and output to console
             var apiResponse = JSON.parse(request.responseText);
-            console.log(apiResponse);
+
+                // Selects all elements with the game class, as an array
+            let get = document.querySelectorAll('.weatherDiv');
+            
+                // Goes through each element and removes them
+            get.forEach(element => {
+                element.remove();
+            });
+
+            const div = document.createElement("div");
+            div.className = "weatherDiv"
+            weatherContent.appendChild(div);
 
             // Output variables to HTML, by creating elements
             const icon = document.createElement("img");
@@ -27,35 +44,34 @@ function apiFetchData() {
 
             // Gives values to variables, from the API
             location.textContent = `Location: ${apiResponse.location.country}, ${apiResponse.location.name}`;
-            time.textContent = `time measured: ${apiResponse.location.localtime}`;
+            time.textContent = `Time measured: ${apiResponse.location.localtime}`;
             temperature.textContent = `Temperature: ${apiResponse.current.temperature}°`;
             icon.src = apiResponse.current.weather_icons;
-            wind.textContent = `Wind: ${apiResponse.current.wind_speed}m/s`;
+            icon.className = "weatherIcon";
+            wind.textContent = `Wind: ${apiResponse.current.wind_speed} mph`;
             visibility.textContent = `Visibility: ${apiResponse.current.visibility} km`;
             feelslike.textContent = `Feels like: ${apiResponse.current.feelslike}°`;
             humidity.textContent = `Humidity: ${apiResponse.current.humidity}%`;
             description.textContent = apiResponse.current.weather_descriptions;
             uv.textContent = `UV index: ${apiResponse.current.uv_index}`;
-
-            // Make picture bigger
-            icon.width = 100;
-            icon.height = 100;
+            
 
             // Make each element a child of the div called weatherContent
-            weatherContent.appendChild(icon);
-            weatherContent.appendChild(time);
-            weatherContent.appendChild(location);
-            weatherContent.appendChild(description);
-            weatherContent.appendChild(temperature);
-            weatherContent.appendChild(feelslike);
-            weatherContent.appendChild(wind);
-            weatherContent.appendChild(uv);
-            weatherContent.appendChild(humidity);
-            weatherContent.appendChild(visibility);
+            div.appendChild(icon);
+            div.appendChild(time);
+            div.appendChild(location);
+            div.appendChild(description);
+            div.appendChild(temperature);
+            div.appendChild(feelslike);
+            div.appendChild(wind);
+            div.appendChild(uv);
+            div.appendChild(humidity);
+            div.appendChild(visibility);
+            
         } else {
             console.error('Failed to fetch weather data');
         }
     }
 }
 
-apiFetchData();
+loadWeatherData.onblur(apiFetchData);

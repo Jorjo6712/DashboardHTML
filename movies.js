@@ -6,7 +6,7 @@ const outputField = document.getElementById("display");
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '4099ab78f2msh0eb22cfce6cef26p1cbbd7jsn21da45057ae1',
+        'X-RapidAPI-Key': '167c3412aamshb64d89dad04047fp129992jsne5daaa9adb7e',
         'X-RapidAPI-Host': 'ott-details.p.rapidapi.com'
     }
 };
